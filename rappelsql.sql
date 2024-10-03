@@ -31,6 +31,8 @@ SELECT * FROM campagnes WHERE budget = (SELECT MAX(budget) FROM campagnes)
 SELECT s.segment_id, COUNT(c.client_id) AS nombre_clients FROM Segments s LEFT JOIN Clients c ON s.segment_id = c.segment_id GROUP BY s.segment_id
 
 
+Select nom_campagne,revenus_generes from Campagnes inner join performances where Campagnes.campagne_id = Performances.campagne_id
+
 
 
 
