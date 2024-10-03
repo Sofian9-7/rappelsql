@@ -49,3 +49,8 @@ group by Campagnes.canal
 
 
 
+Select Clients.nom, Segments.segment_id, Segments.nom_segment, Segments.description
+from Clients
+inner join Segments on Segments.segment_id = Clients.segment_id
+
+
