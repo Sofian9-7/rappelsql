@@ -42,3 +42,10 @@ group by Campagnes.campagne_id
 
 
 
+Select Campagnes.canal, AVG(Performances.clics)
+from Campagnes
+inner join performances on Campagnes.campagne_id = Performances.campagne_id
+group by Campagnes.canal
+
+
+
