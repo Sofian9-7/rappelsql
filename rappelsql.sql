@@ -35,4 +35,10 @@ Select nom_campagne,revenus_generes from Campagnes inner join performances where
 
 
 
+Select Campagnes.nom_campagne, sum(Performances.revenus_generes)
+from Campagnes
+inner join performances on Campagnes.campagne_id = Performances.campagne_id
+group by Campagnes.campagne_id
+
+
 
