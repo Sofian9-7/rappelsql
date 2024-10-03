@@ -63,3 +63,12 @@ FROM (
     GROUP BY c.client_id, c.nom, c.email
 ) AS client_revenus
 WHERE revenu_total > 1000
+
+
+
+SELECT c.client_id, c.nom, c.email, SUM(p.revenus_generes) AS revenu_total
+FROM Clients c
+JOIN Performances p ON c.client_id = p.client_id
+GROUP BY c.client_id, c.nom, c.email
+ORDER BY revenu_total DESC
+LIMIT 1;
