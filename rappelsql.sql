@@ -28,8 +28,7 @@ SELECT SUM(budget) AS montant_total FROM campagnes;
 SELECT * FROM campagnes WHERE budget = (SELECT MAX(budget) FROM campagnes)
 
 
-SELECT segment_id, COUNT(*) AS nombre_clients FROM clients GROUP BY segment_id;
-
+SELECT s.segment_id, COUNT(c.client_id) AS nombre_clients FROM Segments s LEFT JOIN Clients c ON s.segment_id = c.segment_id GROUP BY s.segment_id
 
 
 
