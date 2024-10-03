@@ -55,8 +55,11 @@ inner join Segments on Segments.segment_id = Clients.segment_id
 
 
 
-SELECT c.client_id, c.nom, c.email, SUM(p.revenus_generes) AS revenu_total
-FROM Clients c
-JOIN Performances p ON c.client_id = p.client_id
-GROUP BY c.client_id, c.nom, c.email
-Having revenu_total > 1000
+SELECT client_id, nom, email, revenu_total
+FROM (
+    SELECT c.client_id, c.nom, c.email, SUM(p.revenus_generes) AS revenu_total
+    FROM Clients c
+    JOIN Performances p ON c.client_id = p.client_id
+    GROUP BY c.client_id, c.nom, c.email
+) AS client_revenus
+WHERE revenu_total > 1000
