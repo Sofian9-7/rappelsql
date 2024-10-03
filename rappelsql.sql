@@ -72,3 +72,9 @@ JOIN Performances p ON c.client_id = p.client_id
 GROUP BY c.client_id, c.nom, c.email
 ORDER BY revenu_total DESC
 LIMIT 1;
+
+
+
+SELECT campagne_id, nom_campagne, budget
+FROM Campagnes
+WHERE budget > (SELECT AVG(budget) FROM Campagnes);
