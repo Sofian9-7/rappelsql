@@ -17,3 +17,6 @@ SELECT * FROM campagnes ORDER BY debut_campagne DESC;
 
 
 SELECT COUNT(*) AS total_clients FROM clients
+
+
+SELECT AVG(age) AS age_moyen FROM clients
